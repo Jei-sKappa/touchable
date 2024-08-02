@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:touchable/src/shapes/constant.dart';
 import 'package:touchable/src/shapes/shape.dart';
 import 'package:touchable/src/shapes/util.dart';
-import 'package:touchable/src/types/types.dart';
 
 class Line extends Shape {
   final Offset p1;
@@ -12,17 +11,14 @@ class Line extends Shape {
   double a, b;
   late double c; // Equation ax+by = c
 
-  Line(this.p1, this.p2,
-      {Map<GestureType, Function>? gestureMap,
-      Paint? paint,
-      HitTestBehavior? hitTestBehavior,
-      PaintingStyle? paintStyleForTouch})
-      : a = p2.dy - p1.dy,
-        b = p1.dx - p2.dx,
-        super(
-            hitTestBehavior: hitTestBehavior,
-            paint: paint ?? Paint(),
-            gestureCallbackMap: gestureMap ?? {}) {
+  Line(
+    this.p1,
+    this.p2, {
+    super.paint,
+    super.hitTestBehavior,
+    super.gestureCallbacks,
+  })  : a = p2.dy - p1.dy,
+        b = p1.dx - p2.dx {
     c = a * p1.dx + b * p1.dy;
   }
 

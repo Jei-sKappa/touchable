@@ -126,16 +126,18 @@ class MovablePainter extends CustomPainter {
       position,
       75,
       paint,
-      onPanStart: (details) {
-        print('onPanStart AAA');
-      },
-      onPanUpdate: (details) {
-        print('onPanUpdate AAA');
-        onPositionChanged(details.localPosition);
-      },
-      onPanEnd: (details) {
-        print('onPanEnd AAA');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onPanStart: (details) {
+          print('onPanStart AAA');
+        },
+        onPanUpdate: (details) {
+          print('onPanUpdate AAA');
+          onPositionChanged(details.localPosition);
+        },
+        onPanEnd: (details) {
+          print('onPanEnd AAA');
+        },
+      ),
     );
   }
 
@@ -163,9 +165,11 @@ class MyPainter extends CustomPainter {
     _canvas.drawRect(
       Rect.fromLTWH(10, 100, 100, 50),
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw Circle
@@ -173,27 +177,33 @@ class MyPainter extends CustomPainter {
       Offset(250, 50),
       30,
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw Oval
     _canvas.drawOval(
       Rect.fromLTWH(10, 200, 100, 50),
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     _canvas.drawLine(
       Offset(70, 40),
       Offset(200, 80),
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw Paragraph
@@ -208,9 +218,11 @@ class MyPainter extends CustomPainter {
     _canvas.drawPath(
       path,
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw Shadow
@@ -240,18 +252,22 @@ class MyPainter extends CustomPainter {
     _canvas.drawRect(
       Rect.fromLTWH(120, 100, 100, 50),
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw RRect
     _canvas.drawRRect(
       RRect.fromLTRBR(120, 160, 220, 200, const Radius.circular(10)),
       paint,
-      onTapDown: (details) {
-        print('onTapDown');
-      },
+      gestureCallbacks: GestureCallbacks(
+        onTapDown: (details) {
+          print('onTapDown');
+        },
+      ),
     );
 
     // Draw Arc

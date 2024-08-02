@@ -10,14 +10,14 @@ abstract class Shape {
   Set<GestureType> get registeredGestures => gestureCallbackMap.keys.toSet();
 
   Shape({
-    Paint? paint,
-    Map<GestureType, Function>? gestureCallbackMap,
-    HitTestBehavior? hitTestBehavior,
+    required Paint? paint,
+    required GestureCallbacks? gestureCallbacks,
+    required HitTestBehavior? hitTestBehavior,
   })  : paint = paint ??
             (Paint()
               ..strokeWidth = ShapeConstant.floatPrecision
               ..style = PaintingStyle.fill),
-        gestureCallbackMap = gestureCallbackMap ?? {},
+        gestureCallbackMap = gestureCallbacks?.getGestureCallbackMap() ?? {},
         hitTestBehavior = hitTestBehavior ?? HitTestBehavior.opaque;
 
   bool isInside(Offset p);

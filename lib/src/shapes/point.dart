@@ -1,25 +1,21 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:touchable/src/shapes/circle.dart';
 import 'package:touchable/src/shapes/line.dart';
 import 'package:touchable/src/shapes/shape.dart';
-import 'package:touchable/src/types/types.dart';
 
 class Point extends Shape {
   final PointMode pointMode;
 
   final List<Offset> points;
 
-  Point(this.pointMode, this.points,
-      {Map<GestureType, Function>? gestureMap,
-      Paint? paint,
-      HitTestBehavior? hitTestBehavior,
-      PaintingStyle? paintStyleForTouch})
-      : super(
-            hitTestBehavior: hitTestBehavior,
-            paint: paint ?? Paint(),
-            gestureCallbackMap: gestureMap ?? {});
+  Point(
+    this.pointMode,
+    this.points, {
+    super.paint,
+    super.hitTestBehavior,
+    super.gestureCallbacks,
+  });
 
   @override
   bool isInside(Offset p) {

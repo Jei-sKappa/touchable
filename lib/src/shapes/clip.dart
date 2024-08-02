@@ -3,7 +3,11 @@ import 'dart:ui';
 import 'package:touchable/src/shapes/shape.dart';
 
 abstract class ClipShape extends Shape {
-  ClipShape() : super(paint: Paint(), gestureCallbackMap: {});
+  ClipShape({
+    super.paint,
+    super.hitTestBehavior,
+    super.gestureCallbacks,
+  });
 }
 
 class ClipRectShape extends ClipShape {
