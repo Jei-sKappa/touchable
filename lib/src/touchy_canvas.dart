@@ -68,7 +68,7 @@ class TouchyCanvas {
     double radius,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawCircle(c, radius, paint);
     _shapeHandler.addShape(
@@ -87,7 +87,7 @@ class TouchyCanvas {
     Offset p2,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawLine(p1, p2, paint);
     _shapeHandler.addShape(
@@ -105,7 +105,7 @@ class TouchyCanvas {
     Rect rect,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawOval(rect, paint);
     _shapeHandler.addShape(
@@ -118,17 +118,11 @@ class TouchyCanvas {
     );
   }
 
-  void drawParagraph(Paragraph paragraph, Offset offset) {
-    _canvas.drawParagraph(paragraph, offset);
-    // _shapeHandler.addShape(Rectangle(Rect.fromLTWH(offset.dx, offset.dy, paragraph.width, paragraph.height),
-    //     paint: Paint(), gestureMap: {}),);
-  }
-
   void drawPath(
     Path path,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawPath(path, paint);
     _shapeHandler.addShape(
@@ -146,7 +140,7 @@ class TouchyCanvas {
     List<Offset> points,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawPoints(pointMode, points, paint);
     _shapeHandler.addShape(
@@ -164,7 +158,7 @@ class TouchyCanvas {
     RRect rrect,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawRRect(rrect, paint);
     _shapeHandler.addShape(
@@ -182,7 +176,7 @@ class TouchyCanvas {
     Float32List points,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawRawPoints(pointMode, points, paint);
     List<Offset> offsetPoints = [];
@@ -206,7 +200,7 @@ class TouchyCanvas {
     Rect rect,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawRect(rect, paint);
     _shapeHandler.addShape(
@@ -230,7 +224,7 @@ class TouchyCanvas {
     Offset p,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawImage(image, p, paint);
     _shapeHandler.addShape(
@@ -255,7 +249,7 @@ class TouchyCanvas {
     bool useCenter,
     Paint paint, {
     HitTestBehavior? hitTestBehavior,
-    GestureCallbacks gestureCallbacks = const GestureCallbacks(),
+    GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawArc(rect, startAngle, sweepAngle, useCenter, paint);
     var arc = Arc(
