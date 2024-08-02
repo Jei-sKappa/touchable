@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:touchable/src/shapes/constant.dart';
 import 'package:touchable/touchable.dart';
@@ -21,17 +18,17 @@ abstract class Shape {
               ..strokeWidth = ShapeConstant.floatPrecision
               ..style = PaintingStyle.fill),
         gestureCallbackMap = gestureCallbackMap ?? {},
-        hitTestBehavior = hitTestBehavior ?? HitTestBehavior.opaque {
-    if (this.paint.strokeWidth == 0) {
-      this.paint.strokeWidth = ShapeConstant.floatPrecision;
-    }
-  }
+        hitTestBehavior = hitTestBehavior ?? HitTestBehavior.opaque;
 
   bool isInside(Offset p);
 
   Function getCallbackFromGesture(Gesture gesture) {
     if (gestureCallbackMap.containsKey(gesture.gestureType)) {
-      return () => gestureCallbackMap[gesture.gestureType]?.call(gesture.gestureDetail);
+      if (gesture.gestureDetail == null) {
+        return () => gestureCallbackMap[gesture.gestureType]?.call();
+      }
+      return () =>
+          gestureCallbackMap[gesture.gestureType]?.call(gesture.gestureDetail);
     } else {
       return () {};
     }

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:touchable/src/shapes/clip.dart';
 import 'package:touchable/src/shapes/shape.dart';
