@@ -71,6 +71,7 @@ class TouchyCanvas {
     GestureCallbacks? gestureCallbacks,
   }) {
     _canvas.drawCircle(c, radius, paint);
+    // TODO: Consider not adding the shape if gestureCallbacks is null
     _shapeHandler.addShape(
       Circle(
         center: c,
